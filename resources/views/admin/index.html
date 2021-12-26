@@ -1,0 +1,387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+002
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+003
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+004
+<head>
+005
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+006
+ <title>Direct Post Tester</title>
+007
+<style type="text/css">
+008
+dd { margin-left: 75px; }
+009
+#mode_margin { margin-left: 0px; }
+010
+</style>
+011
+</head>
+012
+<body>
+013
+<form id="AriaPay" name="AriaPay" action="https://secure.future.stage.ariasystems.net/api/direct_post.php" method="post">  
+014
+    <fieldset class="paymethodfieldset">
+015
+        <dl> 
+016
+        <dt>Client Number (normally hidden) </dt>
+017
+        <dd>
+018
+            <input id="client_no" type="text" name="client_no" value="" size="30"/>
+019
+        </dd>
+020
+        <dt id>Mode (normally hidden)</dt>
+021
+        <dd id="mode_margin">
+022
+            <span style="color:#999">direct_post_</span><input id="mode" type="text" name="mode" value="" size="30"/>            
+023
+        </dd>            
+024
+        <dt>Session ID (normally hidden)</dt>            
+025
+        <dd>
+026
+            <input id="inSessionID" name="inSessionID" type="text" value="" size="30"/>
+027
+         
+028
+        </dd>                            
+029
+        <dt>Collection Amount</dt>            
+030
+        <dd>
+031
+            <input id="collection_amount" type="text" name="collection_amount" size="30"/>            
+032
+        </dd>                      
+033
+        <div>
+034
+            <h2>         
+035
+                <input type=radio name=formOfPayment id=formOfPayment value=CreditCard />
+036
+                    Pay by Credit Card</h2>            
+037
+        </div>     
+038
+         
+039
+        <dt>Card Number</dt>
+040
+        <dd>
+041
+            <input type="text" id="cc_no" name="cc_no" value="4111111111111111"/>
+042
+            <span id="err_cc_no" class="jserror"> </span>
+043
+        </dd>           
+044
+        <dt>Expiry Date</dt>
+045
+        <dd>
+046
+            <table cellpadding="0" cellspacing="0">
+047
+                <tr>
+048
+                    <td><select id="cc_exp_mm" name="cc_exp_mm">
+049
+                            <option value="">Month</option>
+050
+                            <option value="1" selected="selected">January</option>                                
+051
+                            <option value="2">February</option>                             
+052
+                            <option value="3">March</option>                          
+053
+                            <option value="4">April</option>                          
+054
+                            <option value="5">May</option>                           
+055
+                            <option value="6">June</option>                           
+056
+                            <option value="7">July</option>                          
+057
+                            <option value="8">August</option>                            
+058
+                            <option value="9">September</option>                    
+059
+                            <option value="10">October</option>                             
+060
+                            <option value="11">November</option>                            
+061
+                            <option value="12">December</option>                            
+062
+                        </select></td>                        
+063
+                    <td width="20">&nbsp;</td>                        
+064
+                    <td><select id="cc_exp_yyyy" name="cc_exp_yyyy">
+065
+<option value="">Month</option>
+066
+                            <option value="2016" selected="selected">2016</option>                                
+067
+                            <option value="2017">2017</option>                             
+068
+                            <option value="2018">2018</option>                          
+069
+                            <option value="2019">2019</option>                          
+070
+                            <option value="2020">2020</option>                           
+071
+                            <option value="2021">2021</option>                           
+072
+                            <option value="2022">2022</option>                          
+073
+                            <option value="2023">2023</option>                            
+074
+                            <option value="2024">2024</option>                    
+075
+                            <option value="2025">2025</option>                             
+076
+                            <option value="2026">2026</option>                            
+077
+                            <option value="2027">2027</option>
+078
+<option value="2028">2028</option>                            
+079
+                            <option value="2029">2029</option>
+080
+<option value="2030">2030</option>
+081
+                        </select>                        
+082
+                    </td>                    
+083
+                </tr>                
+084
+            </table>            
+085
+        </dd>
+086
+        <dt>Security Code</dt>
+087
+        <dd>
+088
+            <input id="cvv" type="text" size="5" name="cvv" value="111"/>
+089
+        </dd>
+090
+        </dl>    
+091
+</fieldset>    
+092
+<fieldset >
+093
+    <dl id="payMethodACH" >
+094
+                <div class="Section_Header">                
+095
+            <h2>                    
+096
+                <input type=radio name=formOfPayment id=formOfPayment value=ACH />                    
+097
+                Pay by ACH</h2>            
+098
+        </div>            
+099
+        <dt>Routing Number</dt>
+100
+ 
+101
+        <dd>                
+102
+            <input type="text" id="bank_routing_num" name="bank_routing_num" value="999999992"/>            
+103
+        </dd>            
+104
+        <dt>Account Number</dt>           
+105
+        <dd>                
+106
+            <input type="text" id="bank_acct_num" name="bank_acct_num" value="1111111111" />            
+107
+        </dd>        
+108
+    </dl>    
+109
+</fieldset>    
+110
+<h2>Pay using Net Terms</h2>    
+111
+<fieldset class="paymethodfieldset">        
+112
+    <dl id="payMethodNet0" >            
+113
+        <dt>                
+114
+            <div class="Section_Header">                    
+115
+                <h3>                        
+116
+                    <input type=radio name=formOfPayment id=formOfPayment value=Net0 />
+117
+                    Pay using Net 0</h3>               
+118
+            </div>            
+119
+        </dt>        
+120
+    </dl>    
+121
+</fieldset>    
+122
+<fieldset>        
+123
+    <dl id="payMethodNet10" class="paymethod2" >            
+124
+        <dt>                
+125
+            <div>                    
+126
+                <h3>                        
+127
+                    <input type=radio name=formOfPayment id=formOfPayment value=Net10 />
+128
+                    Pay using Net 10</h3>                
+129
+            </div>            
+130
+        </dt>       
+131
+     </dl>    
+132
+</fieldset>    
+133
+<fieldset>        
+134
+    <dl id="payMethodNet15">            
+135
+        <dt>                
+136
+            <div class="Section_Header">                    
+137
+                <h3>                        
+138
+                    <input type=radio name=formOfPayment id=formOfPayment value=Net15 />                        
+139
+                    Pay using Net 15</h3>                
+140
+            </div>            
+141
+        </dt>        
+142
+    </dl>    
+143
+</fieldset>    
+144
+<fieldset class="paymethodfieldset">        
+145
+    <dl id="payMethodNet30" class="paymethod2" >            
+146
+        <dt>                
+147
+            <div class="Section_Header">                    
+148
+                <h3>                        
+149
+                    <input type=radio name=formOfPayment id=formOfPayment value=Net30 />
+150
+                    Pay using Net 30</h3>
+151
+            </div>            
+152
+        </dt>       
+153
+    </dl>
+154
+</fieldset>
+155
+<fieldset>        
+156
+    <dl id="payMethodNet15">            
+157
+        <dt>                
+158
+            <div>                    
+159
+                <h3>                        
+160
+                    <input type=radio name=formOfPayment id=formOfPayment value=Net45 />                        
+161
+                    Pay using Net 45</h3>                
+162
+            </div>            
+163
+        </dt>
+164
+    </dl>
+165
+</fieldset>    
+166
+<fieldset>       
+167
+     <dl id="payMethodNet60">            
+168
+        <dt>                
+169
+            <div class="Section_Header">                    
+170
+                <h3>                        
+171
+                    <input type=radio name=formOfPayment id=formOfPayment value=Net60 />                        
+172
+                    Pay using Net 60</h3>                
+173
+            </div>           
+174
+        </dt>        
+175
+    </dl>    
+176
+</fieldset>    
+177
+<fieldset>       
+178
+     <dl>            
+179
+        <dd class="button">                
+180
+            <input type="submit" name="submitPayment" id="submitPayment" value="Submit" />            
+181
+        </dd>        
+182
+    </dl>    
+183
+</fieldset>
+184
+</form>
+185
+</div>
+186
+<footer>
+187
+<script src="https://secure.ariasystems.net/api/ariaCHD.js"></script>
+188
+<script language="javascript">
+189
+          aria.environmentId ="future.stage";
+190
+</script>
+191
+</footer>
+192
+</body>
+193
+</html>
+194
+</html>
